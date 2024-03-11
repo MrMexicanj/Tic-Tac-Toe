@@ -1,0 +1,79 @@
+#contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tablero {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+    margin-bottom: 10px;
+}
+
+.casilla {
+    width: 100px;
+    height: 100px;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+#mensaje {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    text-align: center
+}
+
+#lista-mejores-tiempos {
+    padding-left: 20px;
+}
+
+#lista-mejores-tiempos li {
+    margin-bottom: 5px;
+}
+
+
+/* animacion para los ganadores*/ /* link del video de donde lo tome: https://www.youtube.com/watch?v=828Qsr7-I0g */
+
+.ganadores {
+    position: relative;
+    margin: 10% auto 0;
+    width: 50%;
+    height: 400px;
+    background: linear-gradient(0deg, black, rgb(44, 44, 44));
+}
+
+.ganadores::before,
+.ganadores::after {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    background: linear-gradient(45deg, #e6fb04, #ff6600, #00ff66, #00ffff, #ff00ff, #ff0099, #6e0dd0, #ff3300, #099fff);
+    background-size: 400%;
+    width: calc(100% + 5px);
+    height: calc(100% + 5px);
+    z-index: -1;
+    animation: animate 20s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400px 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.ganadores::after {
+    filter: blur(40px);
+}
